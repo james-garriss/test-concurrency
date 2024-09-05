@@ -1,6 +1,7 @@
 name: Test Concurrency
 on:
   push:
+  workflow_dispatch:
 jobs:
   execute:
     runs-on: ubuntu-latest
