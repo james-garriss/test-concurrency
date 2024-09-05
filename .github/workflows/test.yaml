@@ -1,0 +1,19 @@
+name: Test Concurrency
+on:
+  push:
+jobs:
+  execute:
+    runs-on: ubuntu-latest
+    strategy:
+      matrix:
+        alias: [alpha, beta, gamma]
+        product: [one, two]
+    concurrency:
+      group: ${{ matrix.product }}
+    steps:
+      - name: Execute Code
+        run: |
+          echo 'The product is:'
+          echo ${{ matrix.product }}
+          echo 'The alias is:'
+          echo ${{ matrix.alias }}
