@@ -10,6 +10,7 @@ jobs:
         product: [one, two]
     concurrency:
       group: ${{ matrix.product }}
+      cancel-in-progress: false
     steps:
       - name: Execute Code
         run: |
